@@ -3,6 +3,4 @@ sys_shell:
   resolve_prereq: false
   setup: false
   deploy: false
-
-sys_shell_users: []
 ...
