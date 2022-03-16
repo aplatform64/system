@@ -15,9 +15,9 @@
 - name: "System / MC / Setup / Configuration / MC / Create default ini"
   become: true
   ansible.builtin.template:
-    backup: false
+    backup: "{{ sys_mc_actions['setup']['overwrite'] | default(false) }}"
     follow: false
-    force: false
+    force: "{{ sys_mc_actions['setup']['overwrite'] | default(false) }}"
     unsafe_writes: false
     mode: "{{ sys_mc_base['access']['mode']['file'] }}"
     owner: "{{ sys_mc___setup_user['name'] }}"
@@ -28,9 +28,9 @@
 - name: "System / MC / Setup / Configuration / MC / Create default panels.ini"
   become: true
   ansible.builtin.template:
-    backup: false
+    backup: "{{ sys_mc_actions['setup']['overwrite'] | default(false) }}"
     follow: false
-    force: false
+    force: "{{ sys_mc_actions['setup']['overwrite'] | default(false) }}"
     unsafe_writes: false
     mode: "{{ sys_mc_base['access']['mode']['file'] }}"
     owner: "{{ sys_mc___setup_user['name'] }}"

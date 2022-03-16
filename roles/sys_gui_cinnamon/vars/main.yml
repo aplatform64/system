@@ -26,9 +26,13 @@ sys_gui_cinnamon_os_family: "
 
 sys_gui_cinnamon_catalog_user:
   desktop:
-    - "desktop_adapta_nokto_v1"
+    themes:
+      - "desktop_adapta_nokto_v1"
+    path: "/org/cinnamon"
   nemo:
-    - "nemo_v1"
+    themes:
+      - "nemo_v1"
+    path: "/org/nemo"
 
 sys_gui_cinnamon_application:
   name: "cinnamon"
