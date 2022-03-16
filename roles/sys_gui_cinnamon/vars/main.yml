@@ -24,7 +24,7 @@ sys_gui_cinnamon_os_family: "
   {%- endif -%}
   "
 
-sys_gui_cinnamon_catalog_user:
+sys_gui_cinnamon_dconf_catalog:
   desktop:
     themes:
       - "desktop_adapta_nokto_v1"
