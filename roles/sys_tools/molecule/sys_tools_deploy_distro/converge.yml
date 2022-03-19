@@ -17,6 +17,10 @@
           file: true
           groff: true
           less: true
+          sed: true
+          gawk: true
+          grep: true
+          lsof: true
       ansible.builtin.include_role:
         name: "sys_tools"
 ...
