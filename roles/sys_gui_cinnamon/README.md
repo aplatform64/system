@@ -1,15 +1,3 @@
----
-title: "Ansible Role: serdigital64.system.sys_gui_cinnamon"
-description: "Manage provisioning of the Cinnamon desktop environment"
-authors:
-  - SerDigital64
-tags:
-  - ansible
-  - system
-  - linux
-  - automation
----
-
 # Ansible Role: serdigital64.system.sys_gui_cinnamon
 
 ## Purpose
@@ -89,10 +77,6 @@ sys_gui_cinnamon_dconf:
 
 ### OS Compatibility
 
-- CentOS8
-- RedHat8
-- AlmaLinux8
-- OracleLinux8
 - Ubuntu20
 - Ubuntu21
 - Fedora33
