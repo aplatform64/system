@@ -9,8 +9,6 @@ sys_gui_cinnamon_platforms:
 
 sys_gui_cinnamon_os_family: "
   {%- if
-      ( ansible_distribution == 'CentOS' ) or
-      ( ansible_distribution == 'OracleLinux' ) or
       ( ansible_distribution == 'Fedora' )
   -%}
     {{ 'RedHat' }}

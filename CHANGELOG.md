@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.0]
+
+### Added
+
+- all: RHEL-8 and AlmaLinux8 compatibility
+- sys_tools: deploy grep, gawk, sed, lsof
+
 ## [1.4.1]
 
 ### Fixed
@@ -31,6 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.3.7]
 
 [Unreleased]: https://github.com/serdigital64/aplatform64/compare/1.4.1...HEAD
+[1.5.0]: https://github.com/serdigital64/aplatform64/compare/1.4.1...1.5.0
 [1.4.1]: https://github.com/serdigital64/aplatform64/compare/1.4.0...1.4.1
 [1.4.0]: https://github.com/serdigital64/aplatform64/compare/1.3.7...1.4.0
 [1.3.7]: https://github.com/serdigital64/aplatform64/releases/tag/1.3.7

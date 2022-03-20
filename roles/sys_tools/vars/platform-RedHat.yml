@@ -21,6 +21,26 @@ sys_tools_profiles:
       latest:
         packages:
           - name: "less"
+  gawk:
+    distro:
+      latest:
+        packages:
+          - name: "gawk"
+  sed:
+    distro:
+      latest:
+        packages:
+          - name: "sed"
+  grep:
+    distro:
+      latest:
+        packages:
+          - name: "grep"
+  lsof:
+    distro:
+      latest:
+        packages:
+          - name: "lsof"
 
 sys_tools_repository_custom_yum: []
 sys_tools_repository_custom_apt: []

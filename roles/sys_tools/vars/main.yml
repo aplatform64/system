@@ -1,6 +1,8 @@
 ---
 sys_tools_platforms:
   - "CentOS8"
+  - "RedHat8"
+  - "AlmaLinux8"
   - "OracleLinux8"
   - "Ubuntu20"
   - "Ubuntu21"
@@ -12,6 +14,8 @@ sys_tools_platforms:
 sys_tools_os_family: "
   {%- if
       ( ansible_distribution == 'CentOS' ) or
+      ( ansible_distribution == 'RedHat' ) or
+      ( ansible_distribution == 'AlmaLinux' ) or
       ( ansible_distribution == 'OracleLinux' ) or
       ( ansible_distribution == 'Fedora' )
   -%}
@@ -42,4 +46,26 @@ sys_tools_application:
     type: "distro"
     version: "latest"
     installed: true
+  gawk:
+    name: "gawk"
+    type: "distro"
+    version: "latest"
+    installed: true
+  sed:
+    name: "sed"
+    type: "distro"
+    version: "latest"
+    installed: true
+  grep:
+    name: "grep"
+    type: "distro"
+    version: "latest"
+    installed: true
+  lsof:
+    name: "lsof"
+    type: "distro"
+    version: "latest"
+    installed: true
+
+# sys_tools___deploy_tool
 ...
