@@ -52,4 +52,52 @@
           sys_tools_application['less']['version']
         ]['packages']
         }}"
+
+    - name: "Verify required packages are deployed (package: {{ item }})"
+      ansible.builtin.assert:
+        that:
+          - item['name'] in ansible_facts['packages']
+      loop: "{{
+        sys_tools_profiles['gawk'][
+          sys_tools_application['gawk']['type']
+        ][
+          sys_tools_application['gawk']['version']
+        ]['packages']
+        }}"
+
+    - name: "Verify required packages are deployed (package: {{ item }})"
+      ansible.builtin.assert:
+        that:
+          - item['name'] in ansible_facts['packages']
+      loop: "{{
+        sys_tools_profiles['grep'][
+          sys_tools_application['grep']['type']
+        ][
+          sys_tools_application['grep']['version']
+        ]['packages']
+        }}"
+
+    - name: "Verify required packages are deployed (package: {{ item }})"
+      ansible.builtin.assert:
+        that:
+          - item['name'] in ansible_facts['packages']
+      loop: "{{
+        sys_tools_profiles['sed'][
+          sys_tools_application['sed']['type']
+        ][
+          sys_tools_application['sed']['version']
+        ]['packages']
+        }}"
+
+    - name: "Verify required packages are deployed (package: {{ item }})"
+      ansible.builtin.assert:
+        that:
+          - item['name'] in ansible_facts['packages']
+      loop: "{{
+        sys_tools_profiles['lsof'][
+          sys_tools_application['lsof']['type']
+        ][
+          sys_tools_application['lsof']['version']
+        ]['packages']
+        }}"
 ...

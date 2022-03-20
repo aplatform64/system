@@ -8,4 +8,11 @@
     sys_package_profiles: "{{ sys_tools_profiles[sys_tools___deploy_tool] }}"
   ansible.builtin.include_role:
     name: "serdigital64.system.sys_package"
+  loop: "{{ sys_tools_catalog | list }}"
+  loop_control:
+    loop_var: "sys_tools___deploy_tool"
+  when:
+    - sys_tools_catalog is defined
+    - sys_tools_catalog | list | length > 0
+    - sys_tools_application[sys_tools___deploy_tool] is defined
 ...
