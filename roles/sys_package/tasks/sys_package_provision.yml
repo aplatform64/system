@@ -33,12 +33,12 @@
   when:
     - sys_package___application['supported']
     - (
-      sys_package___application['type'] == "binary" or
-      sys_package___application['type'] == "distro" or
-      sys_package___application['type'] == "snap" or
-      sys_package___application['type'] == "flatpak" or
-      sys_package___application['type'] == "git" or
-      sys_package___application['type'] == "pip" or
+      (sys_package___application['type'] == "binary") or
+      (sys_package___application['type'] == "distro" and ansible_system == "Linux") or
+      (sys_package___application['type'] == "snap" and ansible_system == "Linux") or
+      (sys_package___application['type'] == "flatpak" and ansible_system == "Linux") or
+      (sys_package___application['type'] == "git") or
+      (sys_package___application['type'] == "pip" and ansible_system == "Linux") or
       (sys_package___application['type'] == "rpm" and sys_package_os_family == "RedHat") or
       (sys_package___application['type'] == "deb" and sys_package_os_family == "Ubuntu")
       )

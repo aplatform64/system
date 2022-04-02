@@ -11,6 +11,12 @@
   ansible.builtin.include_role:
     name: "serdigital64.system.sys_repository"
     public: true
+  when:
+    - sys_repository_platforms is not defined
+
+- name: "System / Package / Initialize / Set Platform specific variables"
+  ansible.builtin.include_vars:
+    file: "{{ 'platform-' + ansible_system + '.yml' }}"
 
 - name: "System / Package / Initialize / Resolve prerequisites"
   ansible.builtin.include_tasks:
