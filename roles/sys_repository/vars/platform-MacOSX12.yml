@@ -1,0 +1,32 @@
+---
+sys_repository_base:
+  access:
+    user:
+      owner: "root"
+    group:
+      owner: "wheel"
+    mode:
+      dir: "0755"
+      file: "0644"
+      exe: "0755"
+  templates: "{{ sys_repository_base_common['templates'] }}"
+  etc: {}
+  run:
+    git: "/usr/bin/git"
+    python: "/usr/bin/python3" # python3.8
+  paths: {}
+
+sys_repository_packages:
+  distro: []
+  flatpak: []
+  git: []
+  tools: []
+  snap: []
+  pip: []
+
+sys_repository_sources:
+  distro: []
+  flatpak: []
+  yum: []
+  apt: []
+...

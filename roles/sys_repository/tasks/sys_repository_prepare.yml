@@ -1,5 +1,5 @@
 ---
-- name: "System / Repository / Prepare / Distro"
+- name: "System / Repository / Prepare / Distro (os-family: {{ sys_repository_os_family }})"
   ansible.builtin.include_tasks:
     file: "{{ 'sys_repository_prepare_distro-' + sys_repository_os_family + '.yml' }}"
 
@@ -7,6 +7,7 @@
   ansible.builtin.include_tasks:
     file: "sys_repository_prepare_snap.yml"
   when:
+    - ansible_system == "Linux"
     - "'snap' in sys_repository_managers"
     - sys_repository_managers['snap']
 ...
