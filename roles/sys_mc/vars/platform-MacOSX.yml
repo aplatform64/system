@@ -4,10 +4,10 @@ sys_mc_base:
   access: "{{ sys_mc_base_common['access'] }}"
   templates: "{{ sys_mc_base_common['templates'] }}"
   run:
-    mc: "/usr/bin/mc"
+    mc: "/opt/homebrew/bin/mc"
 
 sys_mc_profiles:
-  distro:
+  brew:
     latest:
       supported: true
       packages:

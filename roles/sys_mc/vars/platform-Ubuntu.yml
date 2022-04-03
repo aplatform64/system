@@ -1,9 +1,10 @@
 ---
 sys_mc_base:
-  run: "{{ sys_mc_base_common['run']  }}"
-  etc: "{{ sys_mc_base_common['etc']  }}"
-  access: "{{ sys_mc_base_common['access']  }}"
-  templates: "{{ sys_mc_base_common['templates']  }}"
+  etc: "{{ sys_mc_base_common['etc'] }}"
+  access: "{{ sys_mc_base_common['access'] }}"
+  templates: "{{ sys_mc_base_common['templates'] }}"
+  run:
+    mc: "/usr/bin/mc"
 
 sys_mc_profiles:
   distro:
