@@ -26,7 +26,7 @@
     file: "sys_repository_deploy_flatpak.yml"
   when:
     - ansible_system == "Linux"
-    - "'flatpak' in sys_repository_managers"
+    - sys_repository_managers['flatpak'] is defined
     - sys_repository_managers['flatpak']
 
 - name: "System / Repository / Deploy / Snap"
@@ -34,7 +34,7 @@
     file: "{{ 'sys_repository_deploy_snap-' + sys_repository_os_family + '.yml' }}"
   when:
     - ansible_system == "Linux"
-    - "'snap' in sys_repository_managers"
+    - sys_repository_managers['snap'] is defined
     - sys_repository_managers['snap']
 
 - name: "System / Repository / Deploy / GIT"
@@ -42,14 +42,22 @@
     file: "sys_repository_deploy_git.yml"
   when:
     - ansible_system == "Linux"
-    - "'git' in sys_repository_managers"
-    - sys_repository_managers['git']
+    - (sys_repository_managers['git'] is defined and sys_repository_managers['git']) or
+      (sys_repository_managers['brew'] is defined and sys_repository_managers['brew'])
 
 - name: "System / Repository / Deploy / PIP"
   ansible.builtin.include_tasks:
     file: "sys_repository_deploy_pip.yml"
   when:
     - ansible_system == "Linux"
-    - "'pip' in sys_repository_managers"
+    - sys_repository_managers['pip'] is defined
     - sys_repository_managers['pip']
+
+- name: "System / Repository / Deploy / Brew"
+  ansible.builtin.include_tasks:
+    file: "sys_repository_deploy_brew.yml"
+  when:
+    - (ansible_system == "Linux" or ansible_system == "Darwin")
+    - sys_repository_managers['brew'] is defined
+    - sys_repository_managers['brew']
 ...

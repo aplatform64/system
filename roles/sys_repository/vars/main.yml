@@ -36,13 +36,14 @@ sys_repository_os_family: "
   "
 
 sys_repository_flavours:
-  - "distro"
-  - "yum"
   - "apt"
-  - "snap"
+  - "brew"
+  - "distro"
   - "flatpak"
   - "git"
   - "pip"
+  - "snap"
+  - "yum"
 
 sys_repository_base_common:
   templates:

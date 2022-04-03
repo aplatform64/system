@@ -3,11 +3,11 @@
   ansible.builtin.include_tasks:
     file: "{{ 'sys_repository_prepare_distro-' + sys_repository_os_family + '.yml' }}"
 
-- name: "System / Repository / Prepare / Snap"
+- name: "System / Repository / Prepare / Brew"
   ansible.builtin.include_tasks:
-    file: "sys_repository_prepare_snap.yml"
+    file: "sys_repository_prepare_brew.yml"
   when:
-    - ansible_system == "Linux"
-    - "'snap' in sys_repository_managers"
-    - sys_repository_managers['snap']
+    - (ansible_system == "Linux" or ansible_system == "Darwin")
+    - sys_repository_managers['brew'] is defined
+    - sys_repository_managers['brew']
 ...

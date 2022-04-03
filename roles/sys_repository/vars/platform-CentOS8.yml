@@ -3,8 +3,10 @@ sys_repository_base:
   access:
     user:
       owner: "root"
+      homebrew: "{{ sys_repository_owners['homebrew']['user'] }}"  # =X= #
     group:
       owner: "root"
+      homebrew: "{{ sys_repository_owners['homebrew']['group'] }}"  # =X= #
     mode:
       dir: "0755"
       file: "0644"
@@ -13,6 +15,7 @@ sys_repository_base:
   etc:
     yum_repos_d: "/etc/yum.repos.d"
   run:
+    su: "/bin/su"   # =X= #
     systemctl: "/usr/bin/systemctl"
     curl: "/usr/bin/curl"
     flatpak: "/usr/bin/flatpak"
@@ -21,7 +24,11 @@ sys_repository_base:
     rpm: "/usr/bin/rpm"
     git: "/usr/bin/git"
     python: "/usr/bin/python3.9"
+    brew: "/home/linuxbrew/.linuxbrew/bin/brew"  # =X= #
+    brew_installer: "/home/linuxbrew/install.sh"  # =X= #
   paths:
+    homebrew: "/home/linuxbrew/.linuxbrew"  # =X= #
+    homebrew_home: "/home/linuxbrew"  # =X= #
     snap_root: "/snap"
     snap_bin: "/snap/bin"
     snap_var: "/var/lib/snapd/snap"
@@ -54,4 +61,7 @@ sys_repository_sources:
       url: "https://flathub.org/repo/flathub.flatpakrepo"
   yum: []
   apt: []
+  brew:  # =X= #
+    - name: "installer"
+      url: "https://raw.githubusercontent.com/Homebrew/install/master/install.sh"
 ...

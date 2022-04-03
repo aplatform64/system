@@ -1,4 +1,8 @@
 ---
 roles: []
-collections: []
+collections:
+  - name: "../../../../../build/dev/serdigital64-system.tar.gz"
+    type: "file"
+  - name: "../../../../../build/dev/serdigital64-devops.tar.gz"
+    type: "file"
 ...

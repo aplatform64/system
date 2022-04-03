@@ -36,7 +36,7 @@
     loop_var: "sys_repository___provision_repo_flatpak"
   when:
     - ansible_system == "Linux"
-    - "'flatpak' in sys_repository_managers"
+    - sys_repository_managers['flatpak'] is defined
     - sys_repository_managers['flatpak']
     - sys_repository___provision_sources['flatpak'] | length > 0
     - sys_repository___provision_repo_flatpak['name'] is defined
