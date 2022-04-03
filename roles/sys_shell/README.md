@@ -143,7 +143,7 @@ sys_shell_actions:
 - Ansible Collections:
   - serdigital64.automation
     - auto_ansible_node
-  - serdigital64.core
+  - serdigital64.system
     - sys_package
     - sys_repository
 
