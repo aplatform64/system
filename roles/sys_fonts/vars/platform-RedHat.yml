@@ -20,7 +20,7 @@ sys_fonts_profiles:
       latest:
         packages:
           - name: "urw-base35-fonts"
-  meslo: "{{ sys_fonts_profiles_common['meslo']  }}"
+  meslo: "{{ sys_fonts_profiles_common['meslo'] }}"
 
 sys_fonts_repository_custom_yum: []
 sys_fonts_repository_custom_apt: []
