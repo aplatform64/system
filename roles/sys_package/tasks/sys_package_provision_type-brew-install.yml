@@ -1,0 +1,22 @@
+---
+- name: "System / Package / Provision / Type: brew / Install / Check required parameters"
+  ansible.builtin.assert:
+    quiet: true
+    that:
+      - "'packages' in sys_package___application"
+      - sys_package___application['packages'] is not none
+      - sys_package___application['packages'] | length > 0
+
+- name: "System / Package / Provision / Type: brew / Install / Install application"
+  become: true
+  become_user: "{{ sys_repository_base['access']['user']['homebrew'] }}"
+  community.general.homebrew:
+    name: "{{
+      sys_package___application['packages'] |
+      map( attribute = 'name' ) |
+      list()
+      }}"
+    state: "present"
+    update_homebrew: false
+    upgrade_all: false
+...

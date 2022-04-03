@@ -57,14 +57,15 @@ sys_package_configuration:
     lock_timeout: "10"
 
 sys_package_flavours:
-  - "distro"
   - "binary"
-  - "snap"
+  - "brew"
+  - "deb"
+  - "distro"
   - "flatpak"
   - "git"
-  - "rpm"
-  - "deb"
   - "pip"
+  - "rpm"
+  - "snap"
 
 # Basic Python modules for venv
 sys_package_python_base:

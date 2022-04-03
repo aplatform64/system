@@ -17,5 +17,6 @@ galaxy_info:
     - "snap"
     - "flatpak"
     - "git"
+    - "brew"
 dependencies: []
 ...

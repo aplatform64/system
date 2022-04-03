@@ -38,6 +38,7 @@
       (sys_package___application['type'] == "snap" and ansible_system == "Linux") or
       (sys_package___application['type'] == "flatpak" and ansible_system == "Linux") or
       (sys_package___application['type'] == "git") or
+      (sys_package___application['type'] == "brew" and sys_package_os_family == "MacOSX") or
       (sys_package___application['type'] == "pip" and ansible_system == "Linux") or
       (sys_package___application['type'] == "rpm" and sys_package_os_family == "RedHat") or
       (sys_package___application['type'] == "deb" and sys_package_os_family == "Ubuntu")
