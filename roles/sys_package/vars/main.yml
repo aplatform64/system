@@ -37,9 +37,9 @@ sys_package_os_family: "
 
 sys_package_base_common:
   paths:
-    var: "/var/opt/sys_package"
-    staging: "/var/opt/sys_package/staging"
-    repository: "/var/opt/sys_package/repository"
+    var: "{{ sys_package_paths['root_var'] }}"
+    staging: "{{ sys_package_paths['root_var'] + '/staging' }}"
+    repository: "{{ sys_package_paths['root_var'] + '/repository' }}"
   templates:
     pip_loader_sh: "pip_loader.sh.j2"
 

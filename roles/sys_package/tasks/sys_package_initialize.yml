@@ -7,6 +7,16 @@
     that:
       - ansible_distribution + ansible_distribution_major_version in sys_package_platforms
 
+- name: "System / Package / Initialize / Check required parameters"
+  ansible.builtin.assert:
+    quiet: true
+    fail_msg: "required parameters are missing ({{
+      sys_package_paths | default('sys_package_paths')
+      }})"
+    that:
+      - sys_package_paths['root_var'] is defined
+      - sys_package_paths['root_var'] | length > 0
+
 - name: "System / Package / Load Dependencies: sys_repository"
   ansible.builtin.include_role:
     name: "serdigital64.system.sys_repository"

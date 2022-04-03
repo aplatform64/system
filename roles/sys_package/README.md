@@ -154,10 +154,26 @@ sys_package_profiles:
 | sys_package_profiles.T.V.script.N                | no        | string     |          | Parameter definition. Add as many lines as parameters. Same format as `ansible.builtin.command.argv`      |
 | sys_package_profiles.T.V.cleanup                 | no        | list       |          | List of full path files that must be removed after the application is uninstalled.                        |
 
+### End State
+
+- Use **end-state** parameters to define the target state after role execution.
+- Parameters should be declared in **host_vars** or **group_vars** as they are intended to be permanent.
+
+```yaml
+sys_package_paths:
+  root_var:
+```
+
+| Parameter                  | Required?    | Type       | Default                  | Purpose / Value                |
+| -------------------------- | ------------ | ---------- | ------------------------ | ------------------------------ |
+| sys_package_paths          | yes(prepare) | dictionary |                          | Set paths                      |
+| sys_package_paths.root_var | yes          | string     | `"/var/opt/sys_package"` | Path for storing variable data |
+
 ## Deployment
 
 ### OS Compatibility
 
+sys_package
 The operating system compatibility list is defined in the variable: `sys_package_platforms`
 
 ### Dependencies
