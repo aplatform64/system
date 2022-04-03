@@ -10,11 +10,9 @@ sys_user_platforms:
   - "Fedora35"
   - "Debian10"
   - "Debian11"
+  - "MacOSX12"
 
-sys_user_base:
-  paths:
-    home: '/home'
-    xdg_config: ".config"
+sys_user_base_common:
   access:
     mode:
       dir: "0700"
