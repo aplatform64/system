@@ -12,4 +12,14 @@
       ansible.builtin.include_role:
         public: true
         name: "sys_repository"
+
+    - name: "Detect target path"
+      ansible.builtin.stat:
+        path: "{{ sys_repository_base['run']['brew'] }}"
+      register: file_stat
+
+    - name: "Verify path is created"
+      ansible.builtin.assert:
+        that:
+          - file_stat['stat']['exists']
 ...
