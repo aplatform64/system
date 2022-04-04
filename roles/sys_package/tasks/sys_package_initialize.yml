@@ -32,6 +32,6 @@
   ansible.builtin.include_tasks:
     file: "sys_package_prerequisite.yml"
   when:
-    - "'resolve_prereq' in sys_package"
+    - sys_package['resolve_prereq'] is defined
     - sys_package['resolve_prereq']
 ...

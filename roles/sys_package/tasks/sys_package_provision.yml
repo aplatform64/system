@@ -7,19 +7,14 @@
       sys_package_profiles | default('sys_package_profiles')
       }})"
     that:
-      - sys_package_application is defined
-      - "'name' in sys_package_application"
-      - sys_package_application['name'] is not none
-      - sys_package_application['name'] | length > 0
-      - "'type' in sys_package_application"
-      - sys_package_application['type'] is not none
-      - sys_package_application['type'] in sys_package_flavours
-      - "'version' in sys_package_application"
-      - sys_package_application['version'] is not none
-      - sys_package_application['version'] | length > 0
-      - "'installed' in sys_package_application"
-      - sys_package_application['installed'] is not none
       - sys_package_profiles is defined
+      - sys_package_application['name'] is defined
+      - sys_package_application['name'] | length > 0
+      - sys_package_application['type'] is defined
+      - sys_package_application['type'] in sys_package_flavours
+      - sys_package_application['version'] is defined
+      - sys_package_application['version'] | length > 0
+      - sys_package_application['installed'] is defined
       - sys_package_application['type'] in sys_package_profiles
       - sys_package_application['version'] in sys_package_profiles[sys_package_application['type']]
 
