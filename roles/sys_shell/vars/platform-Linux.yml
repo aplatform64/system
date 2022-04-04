@@ -1,0 +1,73 @@
+---
+sys_shell_base:
+  files: "{{ sys_shell_base_common['files'] }}"
+  run: "{{ sys_shell_base_common['run'] }}"
+  templates: "{{ sys_shell_base_common['templates'] }}"
+  paths: "{{ sys_shell_base_common['paths'] }}"
+  access:
+    user:
+      owner: "root"
+    group:
+      owner: "root"
+    mode:
+      dir: "0755"
+      file: "0644"
+      exe: "0755"
+
+sys_shell_profiles:
+  zsh:
+    distro:
+      latest:
+        supported: true
+        packages:
+          - name: "zsh"
+  bash:
+    distro:
+      latest:
+        supported: true
+        packages:
+          - name: "bash"
+    brew:
+      latest:
+        supported: true
+        packages:
+          - name: "bash"
+  ksh:
+    distro:
+      latest:
+        supported: true
+        packages:
+          - name: "ksh"
+  csh:
+    distro:
+      latest:
+        supported: true
+        packages:
+          - name: "tcsh"
+  ohmyzsh: "{{ sys_shell_profiles_common['ohmyzsh'] }}"
+  p10k: "{{ sys_shell_profiles_common['p10k'] }}"
+
+sys_shell_application:
+  zsh:
+    name: "zsh"
+    type: "distro"
+    version: "latest"
+    installed: "{{ sys_shell_catalog['zsh'] | default(false) }}"
+  bash:
+    name: "bash"
+    type: "distro"
+    version: "latest"
+    installed: "{{ sys_shell_catalog['bash'] | default(false) }}"
+  ksh:
+    name: "ksh"
+    type: "distro"
+    version: "latest"
+    installed: "{{ sys_shell_catalog['ksh'] | default(false) }}"
+  csh:
+    name: "csh"
+    type: "distro"
+    version: "latest"
+    installed: "{{ sys_shell_catalog['csh'] | default(false) }}"
+  ohmyzsh: "{{ sys_shell_application_common['ohmyzsh'] }}"
+  p10k: "{{ sys_shell_application_common['p10k'] }}"
+...
