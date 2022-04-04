@@ -20,23 +20,7 @@
           setup: true
         sys_shell_catalog:
           bash: true
-        sys_shell_users:
-          - user: "test"
-            flavour: "bash"
-            home: "/home/test"
-            paths:
-              - "/test1"
-              - "/test2"
-            include_system: true
-            sources:
-              - "/test-source.sh"
-            variables:
-              - name: "TEST1"
-                value: "value1"
-                export: true
-              - name: "TEST2"
-                value: "value2"
-                export: true
+        sys_shell_users: "{{ test_sys_shell_users_bash }}"
       ansible.builtin.include_role:
         name: "sys_shell"
 ...

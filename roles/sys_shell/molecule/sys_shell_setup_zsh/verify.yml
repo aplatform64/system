@@ -23,7 +23,7 @@
 
     - name: "Detect rc"
       ansible.builtin.stat:
-        path: "/home/test/{{ sys_shell_base['files']['zshrc'] }}"
+        path: "{{ verify_path_zshrc }}"
       register: file_stat
 
     - name: "Check rc was created"
