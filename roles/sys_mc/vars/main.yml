@@ -48,6 +48,13 @@ sys_mc_base_common:
     ini: "ini.j2"
     panels: "panels.ini.j2"
 
+sys_mc_profiles_common:
+  brew:
+    latest:
+      supported: true
+      packages:
+        - name: "mc"
+
 # loop vars
 # sys_mc___setup_user
 ...

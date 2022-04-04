@@ -1,5 +1,5 @@
 ---
-- name: "System / MC / Prerequisite / Prepare package managers"
+- name: "System / MC / Prerequisite / Prepare package managers {{ sys_repository_managers }}"
   vars:
     sys_repository:
       prepare: true
@@ -11,6 +11,7 @@
       snap: "{{ sys_mc_application['type'] == 'snap' }}"
       git: "{{ sys_mc_application['type'] == 'git' }}"
       pip: "{{ sys_mc_application['type'] == 'pip' }}"
+      brew: "{{ sys_mc_application['type'] == 'brew' }}"
     sys_repository_catalog_distro: "{{ sys_mc_repository_catalog_distro }}"
     sys_repository_catalog_yum: "{{ sys_mc_repository_catalog_yum }}"
     sys_repository_catalog_apt: "{{ sys_mc_repository_catalog_apt }}"
