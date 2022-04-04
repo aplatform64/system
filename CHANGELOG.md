@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - sys_repository: MacOSX support, brew (HomeBrew) repository type
 - sys_package: MacOSX support, brew (HomeBrew) package type
 - sys_user: MacOSX support
+- sys_mc: MacOSX support
+- sys_sudo: MacOSX support
 
 ### Changed
 
