@@ -50,4 +50,5 @@
       - "{{ sys_repository_base['run']['brew_installer'] }}"
       - "{{ sys_repository_owners['homebrew']['user'] }}"
   changed_when: false
+  no_log: true
 ...

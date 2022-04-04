@@ -21,6 +21,7 @@ sys_repository_base:
     brew_installer: "/Users/homebrew/install.sh"
   paths:
     homebrew: "/opt/homebrew"
+    homebrew_bin: "/opt/homebrew/bin"
     homebrew_home: "/Users/homebrew"
 
 sys_repository_packages:
@@ -36,4 +37,5 @@ sys_repository_sources:
   flatpak: []
   yum: []
   apt: []
+  brew: "{{ sys_repository_sources_common['brew'] }}"
 ...

@@ -41,7 +41,6 @@
   ansible.builtin.include_tasks:
     file: "sys_repository_deploy_git.yml"
   when:
-    - ansible_system == "Linux"
     - (sys_repository_managers['git'] is defined and sys_repository_managers['git']) or
       (sys_repository_managers['brew'] is defined and sys_repository_managers['brew'])
 
@@ -57,7 +56,6 @@
   ansible.builtin.include_tasks:
     file: "sys_repository_deploy_brew.yml"
   when:
-    - (ansible_system == "Linux" or ansible_system == "Darwin")
     - sys_repository_managers['brew'] is defined
     - sys_repository_managers['brew']
 ...

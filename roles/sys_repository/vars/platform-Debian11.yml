@@ -26,10 +26,11 @@ sys_repository_base:
     apt_key: "/usr/bin/apt-key"
     git: "/usr/bin/git"
     python: "/usr/bin/python3.9"
-    brew: "/home/linuxbrew/.linuxbrew/bin/brew"
+    brew: "/home/linuxbrew/.linuxbrew/Homebrew/bin/brew"
     brew_installer: "/home/linuxbrew/install.sh"
   paths:
     homebrew: "/home/linuxbrew/.linuxbrew"
+    homebrew_bin: "/home/linuxbrew/.linuxbrew/bin"
     homebrew_home: "/home/linuxbrew"
     snap_root: "/snap"
     snap_bin: "/snap/bin"
@@ -65,4 +66,5 @@ sys_repository_sources:
       url: "https://flathub.org/repo/flathub.flatpakrepo"
   yum: []
   apt: []
+  brew: "{{ sys_repository_sources_common['brew'] }}"
 ...
