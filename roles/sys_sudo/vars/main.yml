@@ -10,6 +10,7 @@ sys_sudo_platforms:
   - "Fedora35"
   - "Debian10"
   - "Debian11"
+  - "MacOSX12"
 
 sys_sudo_profiles:
   distro:
@@ -21,6 +22,7 @@ sys_sudo_base:
   etc:
     sudoers: "/etc/sudoers"
   run:
+    sudo: "/usr/bin/sudo"
     visudo: "/usr/sbin/visudo"
 
 # sys_sudo___setup_item
