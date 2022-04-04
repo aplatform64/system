@@ -11,6 +11,7 @@
   become: true
   become_user: "{{ sys_repository_base['access']['user']['homebrew'] }}"
   community.general.homebrew:
+    path: "{{ sys_repository_base['paths']['homebrew_bin'] }}"
     name: "{{
       sys_package___application['packages'] |
       map( attribute = 'name' ) |

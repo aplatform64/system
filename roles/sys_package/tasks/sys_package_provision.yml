@@ -24,7 +24,7 @@
       - sys_package_application['version'] in sys_package_profiles[sys_package_application['type']]
 
 - name: "System / Package / Provision / Type: {{
-      sys_package___application['type'] }} (app: {{ sys_package___application['name'] }})"
+    sys_package___application['type'] }} (app: {{ sys_package___application['name'] }})"
   ansible.builtin.include_tasks:
     file: "{{
       'sys_package_provision_type-' + sys_package___application['type'] + '-' +
@@ -34,11 +34,11 @@
     - sys_package___application['supported']
     - (
       (sys_package___application['type'] == "binary") or
+      (sys_package___application['type'] == "git") or
+      (sys_package___application['type'] == "brew") or
       (sys_package___application['type'] == "distro" and ansible_system == "Linux") or
       (sys_package___application['type'] == "snap" and ansible_system == "Linux") or
       (sys_package___application['type'] == "flatpak" and ansible_system == "Linux") or
-      (sys_package___application['type'] == "git") or
-      (sys_package___application['type'] == "brew" and sys_package_os_family == "MacOSX") or
       (sys_package___application['type'] == "pip" and ansible_system == "Linux") or
       (sys_package___application['type'] == "rpm" and sys_package_os_family == "RedHat") or
       (sys_package___application['type'] == "deb" and sys_package_os_family == "Ubuntu")
