@@ -11,5 +11,4 @@
       - "{{ sys_repository_owners['homebrew']['user'] }}"
   changed_when: false
   failed_when: false
-  no_log: true
 ...

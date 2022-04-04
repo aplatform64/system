@@ -40,24 +40,14 @@ sys_repository_packages:
     - "ca-certificates"
   flatpak:
     - "flatpak"
-  git:
-    - "git"
   tools:
     - "curl"
   snap:
     - "snapd"
-  pip:    # source: dev_python_profiles@dev_python
-    - "python3"
-    - "python3-pip"
-    - "python3-wheel"
-    - "python3-setuptools"
-    - "which"
 
 sys_repository_sources:
   distro: []
-  flatpak:
-    - name: "flathub"
-      url: "https://flathub.org/repo/flathub.flatpakrepo"
+  flatpak: "{{ sys_repository_sources_common['flatpak'] }}"
   yum: []
   apt: []
   brew: "{{ sys_repository_sources_common['brew'] }}"

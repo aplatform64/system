@@ -46,24 +46,14 @@ sys_repository_packages:
     - "lsb-release"
   flatpak:
     - "flatpak"
-  git:
-    - "git"
   tools:
     - "curl"
   snap:
     - "snapd"
-  pip:    # source: dev_python_profiles@dev_python
-    - "python3.9"
-    - "python3.9-venv"
-    - "python3-setuptools"
-    - "python3-wheel"
-    - "python3-pip"
 
 sys_repository_sources:
   distro: []
-  flatpak:
-    - name: "flathub"
-      url: "https://flathub.org/repo/flathub.flatpakrepo"
+  flatpak: "{{ sys_repository_sources_common['flatpak'] }}"
   yum: []
   apt: []
   brew: "{{ sys_repository_sources_common['brew'] }}"

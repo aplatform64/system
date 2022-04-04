@@ -7,7 +7,6 @@
   ansible.builtin.include_tasks:
     file: "sys_repository_prepare_brew.yml"
   when:
-    - (ansible_system == "Linux" or ansible_system == "Darwin")
     - sys_repository_managers['brew'] is defined
     - sys_repository_managers['brew']
 ...

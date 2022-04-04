@@ -30,7 +30,6 @@ sys_repository_packages:
   git: []
   tools: []
   snap: []
-  pip: []
 
 sys_repository_sources:
   distro: []

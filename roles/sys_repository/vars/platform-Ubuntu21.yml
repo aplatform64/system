@@ -46,24 +46,14 @@ sys_repository_packages:
     - "lsb-release"
   flatpak:
     - "flatpak"
-  git:
-    - "git"
   tools:
     - "curl"
   snap:
     - "snapd"
-  pip:    # source: dev_python_profiles@dev_python
-    - "python3.9"
-    - "python3.9-venv"       # Warning: do not use 3.10 on UB-21.04, venv fails (distro bug)
-    - "python3-pip"
-    - "python3-setuptools"
-    - "python3-wheel"
 
 sys_repository_sources:
   distro: []
-  flatpak:
-    - name: "flathub"
-      url: "https://flathub.org/repo/flathub.flatpakrepo"
+  flatpak: "{{ sys_repository_sources_common['flatpak'] }}"
   yum: []
   apt: []
   brew: "{{ sys_repository_sources_common['brew'] }}"

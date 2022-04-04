@@ -167,6 +167,8 @@ The operating system compatibility list is defined in the variable: `sys_reposit
     - sys_user
   - serdigital64.devops
     - dops_git_client
+  - serdigital64-development
+    - dev_python
 
 ### Prerequisites
 

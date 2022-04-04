@@ -40,26 +40,16 @@ sys_repository_packages:
     - "ca-certificates"
   flatpak:
     - "flatpak"
-  git:
-    - "git"
   tools:
     - "curl"
   snap:
     - "snapd"
-  pip:    # source: dev_python_profiles@dev_python
-    - "python39"
-    - "python39-pip"
-    - "python39-setuptools"
-    - "python39-wheel"
-    - "which"
 
 sys_repository_sources:
   distro:
     - name: "epel"
       package: "epel-release"
-  flatpak:
-    - name: "flathub"
-      url: "https://flathub.org/repo/flathub.flatpakrepo"
+  flatpak: "{{ sys_repository_sources_common['flatpak'] }}"
   yum: []
   apt: []
   brew: "{{ sys_repository_sources_common['brew'] }}"
