@@ -3,7 +3,13 @@ sys_shell_base:
   files: "{{ sys_shell_base_common['files'] }}"
   run: "{{ sys_shell_base_common['run'] }}"
   templates: "{{ sys_shell_base_common['templates'] }}"
-  paths: "{{ sys_shell_base_common['paths'] }}"
+  paths:
+    ohmyzsh: "/opt/ohmyzsh"
+    p10k: "/opt/powerlevel10k"
+    p10k_themes_usr: ".oh-my-zsh/custom/themes"
+    ohmyzsh_usr: ".oh-my-zsh"
+    custom_p10k_themes: "files/custom_p10k_themes"
+    home_root: "/Users"
   access:
     user:
       owner: "root"

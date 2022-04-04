@@ -31,7 +31,7 @@ The following example is an **Ansible Playbook** that includes all the supported
 [use this link if viewing the doc on github](https://github.com/aplatform64/system/blob/main/playbooks/sys_shell.yml)
 
 ```yaml
-{% include "../examples/sys_shell.yml" %}
+{ % include "../examples/sys_shell.yml" % }
 ```
 
 The playbook can be run by executing:
@@ -74,11 +74,13 @@ sys_shell_catalog:
   ksh: false
   csh: false
 sys_shell_users:
-  - user:
+  - name:
     flavour:
     access:
-      owner:
+      user:
+        owner:
       group:
+        owner:
       mode:
         file:
         dir:
@@ -103,11 +105,13 @@ sys_shell_actions:
 | sys_shell_catalog.csh             | no         | boolean    | `false` | Enable processing of the csh shell                                       |
 | sys_shell_catalog.ksh             | no         | boolean    | `false` | Enable processing of the ksh shell                                       |
 | sys_shell_user                    | yes(setup) | list       |         | Define the list of target users to setup                                 |
-| sys_shell_user.user               | yes(setup) | string     |         | Login name                                                               |
+| sys_shell_user.name               | yes(setup) | string     |         | Login name                                                               |
 | sys_shell_user.flavour            | yes(setup) | string     |         | Profile shell type. Use the associated tag from the supported shell list |
 | sys_shell_user.access             | no         | dictionary |         | Define access permissions for profile files                              |
-| sys_shell_user.access.owner       | no         | string     |         | Define owner                                                             |
-| sys_shell_user.access.group       | no         | string     |         | Define owning group                                                      |
+| sys_shell_user.access.user        | no         | dictionary |         | Define owning user                                                       |
+| sys_shell_user.access.owner       | no         | string     |         | User name                                                                |
+| sys_shell_user.access.group       | no         | dictionary |         | Define owning group                                                      |
+| sys_shell_user.access.owner       | no         | string     |         | Group name                                                               |
 | sys_shell_user.access.mode        | no         | dictionary |         | Define file permissions                                                  |
 | sys_shell_user.access.mode.file   | no         | string     |         | Define permissions for files. Use octal notation                         |
 | sys_shell_user.access.mode.dir    | no         | string     |         | Define permissions for directories. Use octal notation                   |

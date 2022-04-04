@@ -12,36 +12,7 @@ sys_shell_platforms:
   - "Debian11"
   - "MacOSX12"
 
-sys_shell_os_family: "
-  {%- if
-      ( ansible_distribution == 'CentOS' ) or
-      ( ansible_distribution == 'RedHat' ) or
-      ( ansible_distribution == 'AlmaLinux' ) or
-      ( ansible_distribution == 'OracleLinux' ) or
-      ( ansible_distribution == 'Fedora' )
-  -%}
-    {{ 'RedHat' }}
-  {%- elif
-      ( ansible_distribution == 'Debian' ) or
-      ( ansible_distribution == 'Ubuntu' )
-  -%}
-    {{ 'Ubuntu' }}
-  {%- elif
-      ( ansible_distribution == 'MacOSX' )
-  -%}
-    {{ 'MacOSX' }}
-  {%- else -%}
-    {{ 'NotSupported' }}
-  {%- endif -%}
-  "
-
 sys_shell_base_common:
-  paths:
-    ohmyzsh: "/opt/ohmyzsh"
-    p10k: "/opt/powerlevel10k"
-    p10k_themes_usr: ".oh-my-zsh/custom/themes"
-    ohmyzsh_usr: ".oh-my-zsh"
-    custom_p10k_themes: "files/custom_p10k_themes"
   files:
     bash_profile: ".bash_profile"
     bash_rc: ".bashrc"
