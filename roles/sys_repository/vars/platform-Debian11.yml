@@ -1,12 +1,23 @@
 ---
 sys_repository_base:
-  access: "{{ sys_repository_base_access }}"
-  templates: "{{ sys_repository_base_templates }}"
+  access:
+    user:
+      owner: "root"
+      homebrew: "{{ sys_repository_owners['homebrew']['user'] }}"
+    group:
+      owner: "root"
+      homebrew: "{{ sys_repository_owners['homebrew']['group'] }}"
+    mode:
+      dir: "0755"
+      file: "0644"
+      exe: "0755"
+  templates: "{{ sys_repository_base_common['templates'] }}"
   etc:
     sources_list_d: "/etc/apt/sources.list.d"
     keyrings: "/usr/share/keyrings"
     trusted_gpg: "/etc/apt/trusted.gpg.d"
   run:
+    su: "/bin/su"
     systemctl: "/bin/systemctl"
     curl: "/usr/bin/curl"
     flatpak: "/usr/bin/flatpak"
@@ -15,7 +26,12 @@ sys_repository_base:
     apt_key: "/usr/bin/apt-key"
     git: "/usr/bin/git"
     python: "/usr/bin/python3.9"
+    brew: "/home/linuxbrew/.linuxbrew/Homebrew/bin/brew"
+    brew_installer: "/home/linuxbrew/install.sh"
   paths:
+    homebrew: "/home/linuxbrew/.linuxbrew"
+    homebrew_bin: "/home/linuxbrew/.linuxbrew/bin"
+    homebrew_home: "/home/linuxbrew"
     snap_root: "/snap"
     snap_bin: "/snap/bin"
     snap_var: "/var/lib/snapd/snap"
@@ -30,24 +46,15 @@ sys_repository_packages:
     - "lsb-release"
   flatpak:
     - "flatpak"
-  git:
-    - "git"
   tools:
     - "curl"
   snap:
     - "snapd"
-  pip:    # source: dev_python_profiles@dev_python
-    - "python3.9"
-    - "python3.9-venv"
-    - "python3-pip"
-    - "python3-setuptools"
-    - "python3-wheel"
 
 sys_repository_sources:
   distro: []
-  flatpak:
-    - name: "flathub"
-      url: "https://flathub.org/repo/flathub.flatpakrepo"
+  flatpak: "{{ sys_repository_sources_common['flatpak'] }}"
   yum: []
   apt: []
+  brew: "{{ sys_repository_sources_common['brew'] }}"
 ...

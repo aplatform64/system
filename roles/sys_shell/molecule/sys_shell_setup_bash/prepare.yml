@@ -29,5 +29,5 @@
         create_home: true
         system: false
         state: "present"
-        name: "test"
+        name: "{{ test_sys_shell_users_zsh[0]['name'] }}"
 ...

@@ -1,7 +1,7 @@
 ---
 sys_mc_application:
   name: "mc"
-  type: "distro"
+  type: "{{ (ansible_distribution == 'MacOSX') | ternary('brew', 'distro') }}"
   version: "latest"
   installed: true
 

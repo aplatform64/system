@@ -10,6 +10,7 @@ sys_mc_platforms:
   - "Fedora35"
   - "Debian10"
   - "Debian11"
+  - "MacOSX12"
 
 sys_mc_os_family: "
   {%- if
@@ -25,14 +26,16 @@ sys_mc_os_family: "
       ( ansible_distribution == 'Ubuntu' )
   -%}
     {{ 'Ubuntu' }}
+  {%- elif
+      ( ansible_distribution == 'MacOSX' )
+  -%}
+    {{ 'MacOSX' }}
   {%- else -%}
-    {{ 'Linux' }}
+    {{ 'NotSupported' }}
   {%- endif -%}
   "
 
 sys_mc_base_common:
-  run:
-    mc: "/usr/bin/mc"
   etc:
     mc: ".config/mc"
     ini: ".config/mc/ini"
@@ -44,6 +47,13 @@ sys_mc_base_common:
   templates:
     ini: "ini.j2"
     panels: "panels.ini.j2"
+
+sys_mc_profiles_common:
+  brew:
+    latest:
+      supported: true
+      packages:
+        - name: "mc"
 
 # loop vars
 # sys_mc___setup_user

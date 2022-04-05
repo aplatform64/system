@@ -17,6 +17,7 @@
   ansible.builtin.include_tasks:
     file: "sys_user_setup_xdg.yml"
   when:
+    - ansible_system == "Linux"
     - sys_user_accounts is defined
     - sys_user_accounts | length > 0
 ...

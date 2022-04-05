@@ -23,6 +23,7 @@
   loop_control:
     loop_var: "sys_repository___provision_repo_distro"
   when:
+    - ansible_system == "Linux"
     - sys_repository___provision_sources['distro'] | length > 0
     - sys_repository___provision_repo_distro['name'] is defined
     - sys_repository_catalog_distro[sys_repository___provision_repo_distro['name']] is defined
@@ -34,7 +35,8 @@
   loop_control:
     loop_var: "sys_repository___provision_repo_flatpak"
   when:
-    - "'flatpak' in sys_repository_managers"
+    - ansible_system == "Linux"
+    - sys_repository_managers['flatpak'] is defined
     - sys_repository_managers['flatpak']
     - sys_repository___provision_sources['flatpak'] | length > 0
     - sys_repository___provision_repo_flatpak['name'] is defined

@@ -1,8 +1,14 @@
 ---
-# WARNING: do not use the dops_git_client to avoid circular dependencies
-- name: "System / Repository / Deploy / GIT / CLI"
-  become: true
-  ansible.builtin.package:
-    state: "present"
-    name: "{{ sys_repository_packages['git'] }}"
+- name: "System / Repository / Deploy / GIT / Distro native CLI"
+  vars:
+    dops_git_client:
+      deploy: true
+    dops_git_client_application:
+      client:
+        name: "git"
+        type: "distro"
+        version: "latest"
+        installed: true
+  ansible.builtin.include_role:
+    name: "serdigital64.devops.dops_git_client"
 ...

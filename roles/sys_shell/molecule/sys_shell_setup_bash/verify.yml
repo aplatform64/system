@@ -23,7 +23,7 @@
 
     - name: "Detect rc"
       ansible.builtin.stat:
-        path: "/home/test/{{ sys_shell_base['files']['bash_rc'] }}"
+        path: "{{ verify_path_bash_rc }}"
       register: file_stat
 
     - name: "Check rc was created"

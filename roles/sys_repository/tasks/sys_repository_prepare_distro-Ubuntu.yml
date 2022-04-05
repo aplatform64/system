@@ -1,5 +1,5 @@
 ---
-- name: "System / Repository / Prepare / Distro / Update repository cache (distro: {{ sys_repository_os_family }})"
+- name: "System / Repository / Prepare / Distro / Update repository cache"
   become: true
   no_log: true
   failed_when: false
