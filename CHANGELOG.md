@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.0]
+
+### Added
+
+- sys_repository: MacOSX support, brew (HomeBrew) repository type
+- sys_package: MacOSX support, brew (HomeBrew) package type
+- sys_user: MacOSX support, group description (dummy field)
+- sys_mc: MacOSX support, brew (HomeBrew) package type
+- sys_sudo: MacOSX support
+- sys_shell: MacOSX support
+
+### Changed
+
+- sys_package: promoted var path to end-state
+- sys_shell: normalized sys_shell_users input fields
+  - user -> name
+  - access.owner -> access.user.owner
+  - access.group -> access.group.owner
+
 ## [1.5.0]
 
 ### Added
@@ -37,7 +56,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.3.7]
 
-[Unreleased]: https://github.com/serdigital64/aplatform64/compare/1.4.1...HEAD
+[Unreleased]: https://github.com/serdigital64/aplatform64/compare/1.6.0...HEAD
+[1.6.0]: https://github.com/serdigital64/aplatform64/compare/1.5.0...1.6.0
 [1.5.0]: https://github.com/serdigital64/aplatform64/compare/1.4.1...1.5.0
 [1.4.1]: https://github.com/serdigital64/aplatform64/compare/1.4.0...1.4.1
 [1.4.0]: https://github.com/serdigital64/aplatform64/compare/1.3.7...1.4.0

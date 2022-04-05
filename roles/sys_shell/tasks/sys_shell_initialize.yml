@@ -7,7 +7,12 @@
     that:
       - ansible_distribution + ansible_distribution_major_version in sys_shell_platforms
 
+- name: "System / Shell / Initialize / Set Platform specific variables"
+  ansible.builtin.include_vars:
+    file: "{{ 'platform-' + ansible_system + '.yml' }}"
+
 - name: "System / Shell / Initialize / Resolve prerequisites"
+
   ansible.builtin.include_tasks:
     file: "sys_shell_prerequisite.yml"
   when:

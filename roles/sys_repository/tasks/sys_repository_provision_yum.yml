@@ -29,8 +29,8 @@
     follow: false
     force: true
     unsafe_writes: false
-    owner: "{{ sys_repository_base['access']['owner'] }}"
-    group: "{{ sys_repository_base['access']['group'] }}"
+    owner: "{{ sys_repository_base['access']['user']['owner'] }}"
+    group: "{{ sys_repository_base['access']['group']['owner'] }}"
     mode: "{{ sys_repository_base['access']['mode']['file'] }}"
     src: "{{ sys_repository_base['templates']['yum_repo'] }}"
     dest: "{{

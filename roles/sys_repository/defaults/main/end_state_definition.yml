@@ -4,6 +4,12 @@ sys_repository_managers:
   snap: false
   git: false
   pip: false
+  brew: false
+
+sys_repository_owners:
+  homebrew:
+    user: "homebrew"
+    group: "homebrew"
 
 sys_repository_catalog_distro: []
 sys_repository_catalog_flatpak:

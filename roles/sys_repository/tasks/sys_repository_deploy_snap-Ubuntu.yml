@@ -17,4 +17,12 @@
   when:
     - sys_repository___deploy_result['changed']
   changed_when: false
+
+- name: "System / Repository / Deploy / Snap / Enable classic mode"
+  become: true
+  ansible.builtin.file:
+    force: true
+    src: "{{ sys_repository_base['paths']['snap_var'] }}"
+    path: "{{ sys_repository_base['paths']['snap_root'] }}"
+    state: "link"
 ...

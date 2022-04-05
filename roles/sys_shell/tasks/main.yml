@@ -7,14 +7,14 @@
   ansible.builtin.include_tasks:
     file: "sys_shell_deploy.yml"
   when:
-    - "'deploy' in sys_shell"
+    - sys_shell['deploy'] is defined
     - sys_shell['deploy']
 
 - name: "System / Shell / Setup"
   ansible.builtin.include_tasks:
     file: "sys_shell_setup.yml"
   when:
-    - "'setup' in sys_shell"
+    - sys_shell['setup'] is defined
     - sys_shell['setup']
 
 - name: "System / Shell / Finalize"
