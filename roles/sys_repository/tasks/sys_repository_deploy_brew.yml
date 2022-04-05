@@ -38,17 +38,43 @@
     mode: "{{ sys_repository_base['access']['mode']['dir'] }}"
 
 - name: "System / Repository / Deploy / Brew / Install Homebrew"
-  environment:
-    NONINTERACTIVE: "1"
-  ansible.builtin.command:
-    creates: "{{ sys_repository_base['run']['brew'] }}"
-    chdir: "{{ sys_repository_base['paths']['homebrew_home'] }}"
-    argv:
-      - "{{ sys_repository_base['run']['su'] }}"
-      - "-l"
-      - "-c"
-      - "{{ sys_repository_base['run']['brew_installer'] }}"
-      - "{{ sys_repository_owners['homebrew']['user'] }}"
-  changed_when: false
-  no_log: true
+  block:
+    - name: "System / Repository / Deploy / Brew / Install Homebrew / Grant temporary sudo access"
+      vars:
+        sys_sudo:
+          setup: true
+        sys_sudo_rules:
+          user:
+            - name: "{{ sys_repository_owners['homebrew']['user'] }}"
+              rule: "ALL=(ALL) NOPASSWD: ALL"
+              present: true
+      ansible.builtin.include_role:
+        name: "serdigital64.system.sys_sudo"
+
+    - name: "System / Repository / Deploy / Brew / Install Homebrew / Deploy package"
+      become: true
+      environment:
+        NONINTERACTIVE: "1"
+      ansible.builtin.command:
+        creates: "{{ sys_repository_base['run']['brew'] }}"
+        chdir: "{{ sys_repository_base['paths']['homebrew_home'] }}"
+        argv:
+          - "{{ sys_repository_base['run']['su'] }}"
+          - "-l"
+          - "{{ sys_repository_owners['homebrew']['user'] }}"
+          - "{{ sys_repository_base['run']['brew_installer'] }}"
+      changed_when: false
+      no_log: true
+  always:
+    - name: "System / Repository / Deploy / Brew / Install Homebrew / Remove temporary sudo access"
+      vars:
+        sys_sudo:
+          setup: true
+        sys_sudo_rules:
+          user:
+            - name: "{{ sys_repository_owners['homebrew']['user'] }}"
+              rule: "ALL=(ALL) NOPASSWD: ALL"
+              present: false
+      ansible.builtin.include_role:
+        name: "serdigital64.system.sys_sudo"
 ...
