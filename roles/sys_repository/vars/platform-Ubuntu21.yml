@@ -46,6 +46,7 @@ sys_repository_packages:
     - "lsb-release"
   flatpak:
     - "flatpak"
+  brew: "{{ sys_repository_packages_common['brew'] }}"
   tools:
     - "curl"
   snap:
@@ -56,5 +57,5 @@ sys_repository_sources:
   flatpak: "{{ sys_repository_sources_common['flatpak'] }}"
   yum: []
   apt: []
-  brew: "{{ sys_repository_sources_common['brew'] }}"
+  brew: []
 ...

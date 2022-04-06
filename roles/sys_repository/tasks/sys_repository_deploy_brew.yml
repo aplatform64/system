@@ -23,7 +23,7 @@
     owner: "{{ sys_repository_base['access']['user']['homebrew'] }}"
     group: "{{ sys_repository_base['access']['group']['homebrew'] }}"
     tmp_dest: "{{ sys_repository_base['paths']['homebrew_home'] }}"
-    url: "{{ sys_repository_sources['brew'][0]['url'] }}"
+    url: "{{ sys_repository_packages['brew'][0] }}"
     dest: "{{ sys_repository_base['run']['brew_installer'] }}"
 
 - name: "System / Repository / Deploy / Brew / Grant global access to the installer"

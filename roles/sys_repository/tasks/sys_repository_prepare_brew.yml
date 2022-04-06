@@ -3,6 +3,7 @@
 - name: "System / Repository / Prepare / Brew / Update repository cache"
   become: true
   ansible.builtin.command:
+    removes: "{{ sys_repository_base['run']['brew'] }}"
     chdir: "{{ sys_repository_base['paths']['homebrew_home'] }}"
     argv:
       - "{{ sys_repository_base['run']['su'] }}"
