@@ -50,10 +50,11 @@ sys_repository_base_common:
     yum_repo: "yum_repo.ini.j2"
     apt_list: "deb_list.ini.j2"
 
-sys_repository_sources_common:
+sys_repository_packages_common:
   brew:
-    - name: "installer"
-      url: "https://raw.githubusercontent.com/Homebrew/install/master/install.sh"
+    - "https://raw.githubusercontent.com/Homebrew/install/master/install.sh"
+
+sys_repository_sources_common:
   flatpak:
     - name: "flathub"
       url: "https://flathub.org/repo/flathub.flatpakrepo"
@@ -73,4 +74,5 @@ sys_repository___deploy_result: ~
 # sys_repository___provision_repo_flatpak
 # sys_repository___provision_repo_yum
 # sys_repository___provision_repo_apt
+# sys_repository___provision_repo_brew
 ...

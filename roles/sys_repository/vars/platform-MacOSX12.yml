@@ -28,6 +28,7 @@ sys_repository_packages:
   distro: []
   flatpak: []
   git: []
+  brew: "{{ sys_repository_packages_common['brew'] }}"
   tools: []
   snap: []
 
@@ -36,5 +37,5 @@ sys_repository_sources:
   flatpak: []
   yum: []
   apt: []
-  brew: "{{ sys_repository_sources_common['brew'] }}"
+  brew: []
 ...

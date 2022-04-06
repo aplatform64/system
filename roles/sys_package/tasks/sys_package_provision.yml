@@ -17,6 +17,8 @@
       - sys_package_application['installed'] is defined
       - sys_package_application['type'] in sys_package_profiles
       - sys_package_application['version'] in sys_package_profiles[sys_package_application['type']]
+  when:
+    - sys_package___application['supported']
 
 - name: "System / Package / Provision / Type: {{
     sys_package___application['type'] }} (app: {{ sys_package___application['name'] }})"

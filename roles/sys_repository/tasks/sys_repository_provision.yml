@@ -15,6 +15,7 @@
       flatpak: "{{ sys_repository_sources['flatpak'] + sys_repository_custom_flatpak | default([]) }}"
       yum: "{{ sys_repository_sources['yum'] + sys_repository_custom_yum | default([]) }}"
       apt: "{{ sys_repository_sources['apt'] + sys_repository_custom_apt | default([]) }}"
+      brew: "{{ sys_repository_sources['brew'] + sys_repository_custom_brew | default([]) }}"
 
 - name: "System / Repository / Provision / Distro"
   include_tasks:
@@ -65,4 +66,17 @@
     - sys_repository___provision_sources['apt'] | length > 0
     - sys_repository___provision_repo_apt['name'] is defined
     - sys_repository_catalog_apt[sys_repository___provision_repo_apt['name']] is defined
+
+- name: "System / Repository / Provision / Brew"
+  include_tasks:
+    file: "sys_repository_provision_brew.yml"
+  loop: "{{ sys_repository___provision_sources['brew'] }}"
+  loop_control:
+    loop_var: "sys_repository___provision_repo_brew"
+  when:
+    - sys_repository_managers['brew'] is defined
+    - sys_repository_managers['brew']
+    - sys_repository___provision_sources['brew'] | length > 0
+    - sys_repository___provision_repo_brew['name'] is defined
+    - sys_repository_catalog_brew[sys_repository___provision_repo_brew['name']] is defined
 ...

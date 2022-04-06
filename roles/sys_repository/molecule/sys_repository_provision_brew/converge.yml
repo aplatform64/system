@@ -13,12 +13,17 @@
         gather_subset: "min"
         gather_timeout: "10"
 
-    - name: "Prepare brew"
+    - name: "Provision brew repository"
       vars:
         sys_repository:
-          prepare: true
+          provision: true
         sys_repository_managers:
           brew: true
+        sys_repository_catalog_apt:
+          hashicorp: true
+        sys_repository_custom_apt:
+          - name: "hashicorp"
+            source: "hashicorp/tap/terraform"
       ansible.builtin.include_role:
         name: "sys_repository"
 ...
