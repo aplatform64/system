@@ -7,6 +7,8 @@
     sys_package_profiles: "{{ sys_shell_profiles['zsh'] }}"
   ansible.builtin.include_role:
     name: "serdigital64.system.sys_package"
+  when:
+    - sys_shell_profiles['zsh'] | length > 0
 
 - name: "System / Shell / Deploy / App / Oh-My-ZSH"
   vars:

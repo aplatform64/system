@@ -4,7 +4,6 @@
     file: "sys_shell_deploy_zsh.yml"
   when:
     - sys_shell_catalog['zsh'] is defined
-    - sys_shell_application['zsh'] | length > 0
 
 - name: "System / Shell / Deploy / CSH"
   ansible.builtin.include_tasks:
