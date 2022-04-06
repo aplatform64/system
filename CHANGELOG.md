@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.0]
+
+### Fixed
+
+- sys_repository: added temporary sudo privilege to homebrew during install, brew repositories
+- sys_package: add brew cask support
+
 ## [1.6.0]
 
 ### Added
@@ -56,7 +63,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.3.7]
 
-[Unreleased]: https://github.com/serdigital64/aplatform64/compare/1.6.0...HEAD
+[Unreleased]: https://github.com/serdigital64/aplatform64/compare/1.7.0...HEAD
+[1.7.0]: https://github.com/serdigital64/aplatform64/compare/1.6.0...1.7.0
 [1.6.0]: https://github.com/serdigital64/aplatform64/compare/1.5.0...1.6.0
 [1.5.0]: https://github.com/serdigital64/aplatform64/compare/1.4.1...1.5.0
 [1.4.1]: https://github.com/serdigital64/aplatform64/compare/1.4.0...1.4.1
