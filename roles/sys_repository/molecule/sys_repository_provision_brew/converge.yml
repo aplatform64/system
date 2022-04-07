@@ -19,11 +19,11 @@
           provision: true
         sys_repository_managers:
           brew: true
-        sys_repository_catalog_apt:
+        sys_repository_catalog_brew:
           hashicorp: true
-        sys_repository_custom_apt:
+        sys_repository_custom_brew:
           - name: "hashicorp"
-            source: "hashicorp/tap/terraform"
+            source: "hashicorp/tap"
       ansible.builtin.include_role:
         name: "sys_repository"
 ...

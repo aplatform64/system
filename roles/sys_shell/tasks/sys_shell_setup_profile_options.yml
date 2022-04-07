@@ -1,4 +1,17 @@
 ---
+- name: "System / Shell / Setup / Profile / Options / Check required parameters"
+  ansible.builtin.assert:
+    fail_msg: "required parameters are missing ({{
+      sys_shell___setup_user | default('sys_shell_users') }})"
+    quiet: true
+    that:
+      - sys_shell___setup_user['name'] is defined
+      - sys_shell___setup_user['name'] | length > 0
+      - sys_shell___setup_user['flavour'] is defined
+      - sys_shell___setup_user['flavour'] | length > 0
+      - sys_shell___setup_user['access'] is defined
+      - sys_shell___setup_user['access'] | length > 0
+
 - name: "System / Shell / Setup / Profile / Options / Identify"
   ansible.builtin.set_fact:
     sys_shell___setup_profile:
@@ -6,17 +19,17 @@
       flavour: "{{ sys_shell___setup_user['flavour'] }}"
       access:
         user:
-          owner: "{{ sys_shell___setup_user['access']['user']['owner'] | default( sys_shell___setup_user['name'] ) }}"
+          owner: "{{ sys_shell___setup_user['access']['user']['owner'] }}"
         group:
-          owner: "{{ sys_shell___setup_user['access']['group']['owner'] | default( sys_shell___setup_user['name'] ) }}"
+          owner: "{{ sys_shell___setup_user['access']['group']['owner'] }}"
         mode:
           file: "{{
             sys_shell___setup_user['access']['mode']['file'] |
-            default( sys_shell_user_default[sys_shell___setup_user['flavour']]['access']['mode']['file'] )
+            default( sys_shell_base['access']['mode']['file_usr'] )
             }}"
           dir: "{{
             sys_shell___setup_user['access']['mode']['dir'] |
-            default( sys_shell_user_default[sys_shell___setup_user['flavour']]['access']['mode']['dir'] )
+            default( sys_shell_base['access']['mode']['dir_usr'] )
             }}"
       home: "{{
         sys_shell___setup_user['home'] |
