@@ -2,6 +2,11 @@
 test_sys_shell_users_bash:
   - name: "test"
     flavour: "bash"
+    access:
+      user:
+        owner: "test"
+      group:
+        owner: "test"
     home: "/home/test"
     paths:
       - "/test1"
@@ -19,6 +24,11 @@ test_sys_shell_users_bash:
 test_sys_shell_users_zsh:
   - name: "test"
     flavour: "zsh"
+    access:
+      user:
+        owner: "test"
+      group:
+        owner: "test"
     home: "/home/test"
     paths:
       - "/test1"
