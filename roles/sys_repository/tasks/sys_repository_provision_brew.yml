@@ -8,13 +8,13 @@
 
 - name: "System / Repository / Provision / Brew / Add Tap"
   become: true
-  become_method: "community.general.sudosu"
-  become_user: "{{ sys_repository_owners['homebrew']['user'] }}"
   ansible.builtin.command:
     chdir: "{{ sys_repository_base['paths']['homebrew_home'] }}"
     argv:
-      - "{{ sys_repository_base['run']['brew'] }}"
-      - "tap"
-      - "{{ sys_repository___provision_repo_brew['source'] }}"
+      - "{{ sys_repository_base['run']['su'] }}"
+      - "-l"
+      - "{{ sys_repository_owners['homebrew']['user'] }}"
+      - "-c"
+      - "{{ sys_repository_base['run']['brew'] + ' tap ' + sys_repository___provision_repo_brew['source'] }}"
   changed_when: false
 ...
