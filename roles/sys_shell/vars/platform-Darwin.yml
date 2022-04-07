@@ -1,8 +1,14 @@
 ---
 sys_shell_base:
   files: "{{ sys_shell_base_common['files'] }}"
-  run: "{{ sys_shell_base_common['run'] }}"
   templates: "{{ sys_shell_base_common['templates'] }}"
+  run:
+    su: "/usr/bin/su"
+    ohmysh_install: "/opt/ohmyzsh/install.sh"
+    bash: "/bin/bash"
+    zsh: "/bin/zsh"
+    csh: "/bin/csh"
+    ksh: "/bin/ksh"
   paths:
     ohmyzsh: "/opt/ohmyzsh"
     p10k: "/opt/powerlevel10k"
@@ -19,6 +25,8 @@ sys_shell_base:
       dir: "0755"
       file: "0644"
       exe: "0755"
+      dir_usr: "0700"
+      file_usr: "0600"
 
 sys_shell_profiles:
   zsh: {}
