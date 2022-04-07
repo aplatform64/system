@@ -9,10 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.7.0]
 
+### Added
+
+- sys_package: add brew tap and cask support
+
 ### Fixed
 
 - sys_repository: added temporary sudo privilege to homebrew during install, brew repositories
-- sys_package: add brew cask support
 
 ## [1.6.0]
 

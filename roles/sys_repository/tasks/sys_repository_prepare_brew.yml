@@ -9,7 +9,9 @@
       - "{{ sys_repository_base['run']['su'] }}"
       - "-l"
       - "{{ sys_repository_owners['homebrew']['user'] }}"
-      - "{{ sys_repository_base['run']['brew'] + ' update' }}"
+      - "-c"
+      - "{{ sys_repository_base['run']['brew'] }}"
+      - "update"
   changed_when: false
   failed_when: false
 ...
