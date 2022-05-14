@@ -3,5 +3,5 @@ sys_user_base:
   access: "{{ sys_user_base_common['access'] }}"
   paths:
     home: '/Users'
-    xdg_config:
+    xdg_config: ~
 ...
