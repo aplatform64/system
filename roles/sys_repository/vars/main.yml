@@ -7,6 +7,8 @@ sys_repository_platforms:
   - "OracleLinux8"
   - "Ubuntu20"
   - "Ubuntu21"
+  - "Ubuntu22"
+  - "Ubuntu22"
   - "Fedora33"
   - "Fedora35"
   - "Debian10"
