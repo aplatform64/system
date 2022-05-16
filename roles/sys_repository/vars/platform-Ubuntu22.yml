@@ -25,7 +25,7 @@ sys_repository_base:
     apt_get: "/usr/bin/apt-get"
     apt_key: "/usr/bin/apt-key"
     git: "/usr/bin/git"
-    python: "/usr/bin/python3.9"
+    python: "/usr/bin/python3.10"
     brew: "/home/linuxbrew/.linuxbrew/Homebrew/bin/brew"
     brew_installer: "/home/linuxbrew/install.sh"
   paths:
