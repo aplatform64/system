@@ -47,7 +47,6 @@
   ansible.builtin.include_tasks:
     file: "sys_package_provision_cleanup.yml"
   when:
-    - "'cleanup' in sys_package___application"
-    - sys_package___application['cleanup'] is not none
+    - sys_package___application['cleanup'] is defined
     - sys_package___application['cleanup'] | length > 0
 ...
