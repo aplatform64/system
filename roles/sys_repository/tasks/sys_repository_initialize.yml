@@ -18,7 +18,7 @@
       - sys_repository_owners['homebrew']['group'] is defined
       - sys_repository_owners['homebrew']['group'] | length > 0
 
-- name: "System / Repository / Set Platform specific variables"
+- name: "System / Repository / Initialize / Set Platform specific variables"
   ansible.builtin.include_vars:
     file: "platform-{{ ansible_distribution + ansible_distribution_major_version }}.yml"
 ...
