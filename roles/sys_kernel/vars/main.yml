@@ -6,6 +6,7 @@ sys_kernel_platforms:
   - "AlmaLinux8"
   - "Rocky8"
   - "OracleLinux8"
+  - "OracleLinux9"
   - "Ubuntu20"
   - "Ubuntu21"
   - "Ubuntu22"
@@ -16,7 +17,7 @@ sys_kernel_platforms:
   - "Debian11"
 
 # Group Linux Distributions by family
-sys_kernel_os_family: "
+sys_kernel_os_family: |
   {%- if
       ( ansible_distribution == 'CentOS' ) or
       ( ansible_distribution == 'RedHat' ) or
@@ -34,7 +35,6 @@ sys_kernel_os_family: "
   {%- else -%}
     {{ 'NotSupported' }}
   {%- endif -%}
-  "
 
 sys_kernel_application:
   name: "procps"

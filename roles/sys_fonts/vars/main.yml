@@ -5,6 +5,7 @@ sys_fonts_platforms:
   - "AlmaLinux8"
   - "Rocky8"
   - "OracleLinux8"
+  - "OracleLinux9"
   - "Ubuntu20"
   - "Ubuntu21"
   - "Ubuntu22"
@@ -14,7 +15,7 @@ sys_fonts_platforms:
   - "Debian10"
   - "Debian11"
 
-sys_fonts_os_family: "
+sys_fonts_os_family: |
   {%- if
       ( ansible_distribution == 'CentOS' ) or
       ( ansible_distribution == 'RedHat' ) or
@@ -32,7 +33,6 @@ sys_fonts_os_family: "
   {%- else -%}
     {{ 'NotSupported' }}
   {%- endif -%}
-  "
 
 sys_fonts_base_common:
   files:
