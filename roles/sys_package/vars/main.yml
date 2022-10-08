@@ -5,6 +5,7 @@ sys_package_platforms:
   - "AlmaLinux8"
   - "Rocky8"
   - "OracleLinux8"
+  - "OracleLinux9"
   - "Ubuntu20"
   - "Ubuntu21"
   - "Ubuntu22"
@@ -15,7 +16,7 @@ sys_package_platforms:
   - "Debian11"
   - "MacOSX12"
 
-sys_package_os_family: "
+sys_package_os_family: |
   {%- if
       ( ansible_distribution == 'CentOS' ) or
       ( ansible_distribution == 'RedHat' ) or
@@ -37,7 +38,6 @@ sys_package_os_family: "
   {%- else -%}
     {{ 'NotSupported' }}
   {%- endif -%}
-  "
 
 sys_package_base_common:
   paths:

@@ -5,6 +5,7 @@ sys_repository_platforms:
   - "AlmaLinux8"
   - "Rocky8"
   - "OracleLinux8"
+  - "OracleLinux9"
   - "Ubuntu20"
   - "Ubuntu21"
   - "Ubuntu22"
@@ -16,7 +17,7 @@ sys_repository_platforms:
   - "Debian11"
   - "MacOSX12"
 
-sys_repository_os_family: "
+sys_repository_os_family: |
   {%- if
       ( ansible_distribution == 'CentOS' ) or
       ( ansible_distribution == 'RedHat' ) or
@@ -38,7 +39,6 @@ sys_repository_os_family: "
   {%- else -%}
     {{ 'NotSupported' }}
   {%- endif -%}
-  "
 
 sys_repository_flavours:
   - "apt"
