@@ -9,7 +9,7 @@ sys_gui_cinnamon_platforms:
   - "Debian10"
   - "Debian11"
 
-sys_gui_cinnamon_os_family: |
+sys_gui_cinnamon_os_family: >-
   {%- if
       ( ansible_distribution == 'Fedora' )
   -%}
