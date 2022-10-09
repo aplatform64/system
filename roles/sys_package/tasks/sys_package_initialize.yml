@@ -17,7 +17,7 @@
       - sys_package_paths['root_var'] is defined
       - sys_package_paths['root_var'] | length > 0
 
-- name: "System / Package / Load Dependencies: sys_repository"
+- name: "System / Package / Initialize / Load Dependencies: sys_repository"
   ansible.builtin.include_role:
     name: "serdigital64.system.sys_repository"
     public: true
