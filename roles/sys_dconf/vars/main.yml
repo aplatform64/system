@@ -17,7 +17,7 @@ sys_dconf_platforms:
   - "Debian11"
 
 # Group Linux Distributions by family
-sys_dconf_os_family: |
+sys_dconf_os_family: >-
   {%- if
       ( ansible_distribution == 'CentOS' ) or
       ( ansible_distribution == 'RedHat' ) or

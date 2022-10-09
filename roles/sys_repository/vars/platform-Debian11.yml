@@ -49,6 +49,7 @@ sys_repository_packages:
   brew: "{{ sys_repository_packages_common['brew'] }}"
   tools:
     - "curl"
+    - "tar"
   snap:
     - "snapd"
 

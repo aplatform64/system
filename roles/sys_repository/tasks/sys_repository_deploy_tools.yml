@@ -1,5 +1,5 @@
 ---
-- name: "System / Repository / Deploy / Tools / CURL"
+- name: "System / Repository / Deploy / Tools / Helpers"
   become: true
   ansible.builtin.package:
     state: "present"
