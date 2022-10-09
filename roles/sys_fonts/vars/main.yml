@@ -15,7 +15,7 @@ sys_fonts_platforms:
   - "Debian10"
   - "Debian11"
 
-sys_fonts_os_family: |
+sys_fonts_os_family: >-
   {%- if
       ( ansible_distribution == 'CentOS' ) or
       ( ansible_distribution == 'RedHat' ) or
